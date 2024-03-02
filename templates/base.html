@@ -8,13 +8,6 @@
       rel="stylesheet"
       href="{{ url_for('static', filename='css/styles.css') }}"
     />
-    <style>
-      /* Additional styles */
-      body {
-        margin: 0;
-        padding: 0;
-      }
-    </style>
   </head>
   <body>
     <nav>
@@ -26,9 +19,6 @@
         />
       </a>
       <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Search</a></li>
-        <li><a href="#">Scan Logs</a></li>
         <li><a href="#">Reports</a></li>
         <li class="settings"><a href="#">Settings</a></li>
         <!-- Additional navigation links -->
@@ -38,7 +28,7 @@
     <footer>
       <p>&copy; 2024 OSINT Tool. All rights reserved.</p>
     </footer>
-    <script src="{{ url_for('static', filename='css/welcanim.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/welcanim.js') }}"></script>
     <!-- Link to welcome text JavaScript file -->
   </body>
 </html>
