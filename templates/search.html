@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block body %}
+<header>
+  <h1 class="welcome-text">Search Results</h1>
+</header>
+<section>
+  <!-- Display the result -->
+  {% if result %}
+    <pre>{{ result | tojson(indent=2) }}</pre>
+  {% else %}
+    <p>No result available.</p>
+  {% endif %}
+</section>
+{% endblock %}

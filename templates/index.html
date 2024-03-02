@@ -1,11 +1,12 @@
-{% extends "base.html" %} {% block body %}
+{% extends "base.html" %} 
+{% block body %}
 <header>
   <h1 class="welcome-text">Welcome</h1>
   <!-- Welcome text -->
 </header>
 <section>
   <!-- Search form -->
-  <form>
+  <form action="{{ url_for('search') }}" method="post"> {# Specify the action attribute with the URL for the /search route #}
     <label for="query"></label>
     <input
       type="text"
