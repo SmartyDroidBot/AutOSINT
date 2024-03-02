@@ -20,13 +20,15 @@
       </a>
       <ul>
         <li class="reports"><a href="#">Reports</a></li>
-        <li class="settings"><a href="#">Settings</a></li>
+        <li class="settings">
+          <a href="{{ url_for('settings') }}">Settings</a>
+        </li>
         <!-- Additional navigation links -->
       </ul>
     </nav>
     {% block body %}{% endblock %}
     <footer>
-      <p>&copy; 2024 OSINT Tool. All rights reserved.</p>
+      <p>&copy; 2024 AutOSINT. All rights reserved.</p>
     </footer>
     <script src="{{ url_for('static', filename='js/welcanim.js') }}"></script>
     <!-- Link to welcome text JavaScript file -->
