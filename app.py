@@ -10,5 +10,9 @@ def index():
 def reports():
     return render_template('reports.html')
 
+@app.route('/settings')
+def settings():
+    return render_template('settings.html')
+
 if __name__ == "__main__":
     app.run(debug=True)
