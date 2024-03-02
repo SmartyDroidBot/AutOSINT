@@ -23,13 +23,14 @@ def search():
 
     if request.method == 'POST':
         input_value = request.form['query']
-        
-        # Determine the type of input and make the corresponding API call
-        if '@' in input_value:  # Assuming '@' indicates an email
+        if re.match(r"[^@]+@[^@]+\.[^@]+", input_value):
             result = email_validation(input_value)
-        elif input_value.isdigit():  # Assuming a numeric input indicates a phone number
+        elif re.match(r"^\+?\d+$", input_value):
             result = phone_validation(input_value)
-        else:  # Assuming it's an IP address
+        elif re.match(r"^(25[0-5]|2[0-4][0-9]|[0-1]?[0-9][0-9]?)\."
+                  r"(25[0-5]|2[0-4][0-9]|[0-1]?[0-9][0-9]?)\."
+                  r"(25[0-5]|2[0-4][0-9]|[0-1]?[0-9][0-9]?)\."
+                  r"(25[0-5]|2[0-4][0-9]|[0-1]?[0-9][0-9]?)$", input_value):    
             result = ip_geolocation(input_value)
 
     return render_template('search.html', result=result)
