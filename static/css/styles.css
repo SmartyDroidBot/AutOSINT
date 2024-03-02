@@ -18,6 +18,7 @@ header {
   padding: 20px 0;
   text-align: center;
   position: relative;
+  padding: 40px 0;
 }
 
 header h1 {
@@ -56,6 +57,7 @@ form {
   position: relative;
   width: 80%;
   margin: 0 auto;
+  margin-bottom: 20px;
 }
 
 input[type="text"] {
@@ -67,6 +69,7 @@ input[type="text"] {
   width: 100%;
   display: inline-block;
   border-radius: 20px;
+  margin-bottom: 20px;
 }
 
 label {
@@ -111,9 +114,9 @@ footer {
   text-align: center;
   line-height: 100px;
   height: 100px;
-  margin-top: 80px; /* Adjust the margin-top to your preference */
   text-transform: uppercase;
   letter-spacing: 10px;
+  margin-top: 120px;
 } 
 
 section {
@@ -137,13 +140,13 @@ button[type="submit"] {
   border: 1px solid #0f0;
   color: rgb(255, 255, 255);
   padding: 10px 20px;
-  margin-bottom: 5px; /* Adjust the margin-bottom to reduce space */
   display: inline-block;
   border-radius: 20px;
   cursor: pointer;
   font-size: 16px;
   font-weight: bold;
   text-transform: uppercase;
+  margin-bottom: 0px;
 } 
 
 button[type="submit"]:hover {
