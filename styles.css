@@ -1,0 +1,192 @@
+/* Hacker-themed CSS */
+
+/* General Styles */
+body {
+  background-color: #000;
+  color: #0f0;
+  font-family: "Courier New", monospace;
+}
+
+a {
+  color: #0f0;
+}
+
+a:hover {
+  color: #0a0;
+}
+
+/* Header */
+header {
+  background-color: #000;
+  color: #0f0;
+  padding: 20px 0;
+  text-align: center;
+  position: relative; /* To make positioning of the text relative to the header */
+}
+
+header h1 {
+  margin: 0; /* Remove default margin */
+}
+
+/* Navigation Bar */
+nav {
+  background-color: #111;
+  padding: 10px 0;
+  text-align: center;
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 20px;
+}
+
+nav ul li a {
+  color: #0f0;
+  text-decoration: none;
+}
+
+/* Section */
+section {
+  padding: 20px;
+}
+
+/* Search Form */
+/* Search Form */
+form {
+  text-align: center;
+  position: relative;
+  width: 80%; /* Adjusted width to increase the container size */
+  margin: 0 auto; /* Center the container horizontally */
+}
+
+input[type="text"] {
+  background-color: #111;
+  border: none;
+  color: #0f0;
+  padding: 10px;
+  margin-bottom: 10px;
+  width: 100%; /* Set the search box width to 100% of the container */
+  display: inline-block;
+  border-radius: 20px;
+}
+
+label {
+  position: absolute;
+  top: -30px; /* Adjust the top position to move the label above the search box */
+  left: 0;
+  font-size: 16px;
+}
+
+input[type="text"] {
+  background-color: #111;
+  border: none; /* Remove the border */
+  color: #0f0;
+  padding: 12px; /* Increase padding for a larger input box */
+  margin-bottom: 10px;
+  width: 100%;
+  display: inline-block;
+  border-radius: 20px;
+  font-weight: bold; /* Make the text bold */
+  font-size: 16px; /* Increase font size */
+}
+
+/* Search Results */
+#search-results {
+  background-color: #222;
+  padding: 10px;
+  border: 1px solid #0f0;
+}
+
+/* Footer */
+footer {
+  background-color: #111;
+  color: #0f0;
+  padding: 10px 0;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+/* Welcome Text Styles */
+.welcome-text {
+  font-size: 50px;
+  display: block;
+  text-align: center;
+  line-height: 100px;
+  height: 100px;
+  margin-top: 20px; /* Adjust the margin to shift the welcome text towards the top */
+  text-transform: uppercase;
+  letter-spacing: 10px;
+}
+
+/* Section */
+section {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Center-align the content vertically */
+  min-height: calc(
+    100vh - 400px
+  ); /* Adjust the min-height to center the content vertically */
+}
+
+.settings {
+  float: right; /* Float the settings option to the right */
+}
+
+button[type="submit"] {
+  background-color: #0a0; /* Green background color */
+  border: 1px solid #0f0; /* Green border color */
+  color: rgb(255, 255, 255); /* Green text color */
+  padding: 10px 20px; /* Adjusted padding for better button appearance */
+  margin-bottom: 10px;
+  display: inline-block;
+  border-radius: 20px;
+  cursor: pointer; /* Added cursor pointer for better interaction */
+  font-size: 16px; /* Adjusted font size */
+  font-weight: bold; /* Added font weight */
+  text-transform: uppercase; /* Added text transform for uppercase text */
+}
+
+button[type="submit"]:hover {
+  background-color: #060; /* Darker green background color on hover */
+}
+
+/* Add any additional meta tags or styles here */
+body {
+  margin: 0;
+  padding: 0;
+  position: relative; /* Ensure positioning relative to the body */
+}
+
+.navbar-logo {
+  max-width: 50px; /* Set maximum width for the logo */
+  height: auto; /* Maintain aspect ratio */
+  position: absolute; /* Position the logo absolutely */
+  top: 10px; /* Position from the top edge of the screen */
+  left: 10px; /* Position from the left edge of the screen */
+}
+
+.navbar-logo-link {
+  display: inline-block; /* Ensure the logo behaves as a block element */
+}
+
+nav ul {
+  margin: 0; /* Reset the default margin */
+  padding: 0; /* Reset the default padding */
+}
+
+nav ul li {
+  display: inline-block; /* Display the list items horizontally */
+  margin-right: 20px; /* Add some space between list items */
+}
+
+nav ul li:first-child {
+  margin-left: 0; /* Remove margin from the first list item */
+}
