@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OSINT Tool</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/styles.css') }}"
+    />
+    <style>
+      /* Additional styles */
+      body {
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a href="#" class="navbar-logo-link">
+        <img
+          src="{{ url_for('static', filename='logo.png') }}"
+          alt="Logo"
+          class="navbar-logo"
+        />
+      </a>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Search</a></li>
+        <li><a href="#">Scan Logs</a></li>
+        <li><a href="#">Reports</a></li>
+        <li class="settings"><a href="#">Settings</a></li>
+        <!-- Additional navigation links -->
+      </ul>
+    </nav>
+    {% block body %}{% endblock %}
+    <footer>
+      <p>&copy; 2024 OSINT Tool. All rights reserved.</p>
+    </footer>
+    <script src="{{ url_for('static', filename='css/welcanim.js') }}"></script>
+    <!-- Link to welcome text JavaScript file -->
+  </body>
+</html>
