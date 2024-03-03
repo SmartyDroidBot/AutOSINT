@@ -54,6 +54,8 @@ def search():
             result = ip_geolocation(input_value, ip_api_key)
         elif re.match(r"^(?:[-A-Za-z0-9]+\.)+[A-Za-z]{2,6}$", input_value):
             result = whois(input_value)
+        else:
+            
 
     return render_template('search.html', result=result)
 
