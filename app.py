@@ -1,6 +1,9 @@
-from flask import Flask, render_template, request, session
+from flask import Flask, render_template, request, session, send_file,url_for,redirect
 import requests
 import re
+import json
+
+from fpdf import FPDF
 
 app = Flask(__name__)
 
@@ -66,6 +69,27 @@ def ip_geolocation(ip, api_key):
     url = f'https://ipgeolocation.abstractapi.com/v1/?api_key={api_key}&ip_address={ip}'
     response = requests.get(url)
     return response.json()
+
+@app.route('/download', methods=['POST'])
+def download():
+    if request.method == 'POST':
+        data = {}
+        for key in request.form:
+            if key != 'csrf_token':  # Exclude CSRF token
+                data[key] = request.form[key]
+        
+        # Generate PDF
+        pdf = FPDF()
+        pdf.add_page()
+        pdf.set_font("Arial", size = 12)
+        for key, value in data.items():
+            pdf.cell(200, 10, txt = f"{key}: {value}", ln=True)
+        pdf_output = "search_results.pdf"
+        pdf.output(pdf_output)
+        
+        # Return the PDF file as a download
+        return send_file(pdf_output, as_attachment=True)
+    
 
 if __name__ == "__main__":
     app.run(debug=True)
