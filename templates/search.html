@@ -1,4 +1,5 @@
-{% extends "base.html" %} {% block body %}
+{% extends "base.html" %} 
+{% block body %}
 <style>
   body {
     margin: 0;
@@ -19,7 +20,6 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     overflow: hidden;
-    margin-bottom: 50px;
   }
   th,
   td {
@@ -39,35 +39,39 @@
 <section>
   <!-- Display the result -->
   {% if result %}
-  <table>
-    <thead>
-      <tr>
-        <th>Key</th>
-        <th>Value</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% for key, value in result.items() %}
-      <tr>
-        <td>{{ key }}</td>
-        <td>{{ value }}</td>
-      </tr>
-      {% endfor %}
-    </tbody>
-  </table>
-  {% for key, value in result.items() %}
-  <input type="hidden" name="{{ key }}" value="{{ value }}" />
-  {% endfor %}
-  <!-- Download button -->
-  <form action="/download" method="post">
+    <table>
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for key, value in result.items() %}
+          <tr>
+            <td>{{ key }}</td>
+            <td>{{ value }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
     {% for key, value in result.items() %}
-    <input type="hidden" name="{{ key }}" value="{{ value }}" />
+      <input type="hidden" name="{{ key }}" value="{{ value }}" />
+    {% endfor %}
+    <!-- Download button -->
+  {% else %}
+    <p>No result available.</p>
+  {% endif %}
+</section>
+
+<!-- Download button moved to the bottom -->
+{% if result %}
+  <form action="/download" method="post" style="margin-bottom: 100px;">
+    {% for key, value in result.items() %}
+      <input type="hidden" name="{{ key }}" value="{{ value }}" />
     {% endfor %}
     <button type="submit">Download as PDF</button>
   </form>
-  {% else %}
-  <p>No result available.</p>
-  {% endif %}
-</section>
+{% endif %}
 
 {% endblock %}
