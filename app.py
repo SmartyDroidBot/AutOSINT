@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, session, send_file,url_for,re
 import requests
 import re
 import json
-
+from bs4 import BeautifulSoup
 from fpdf import FPDF
 
 app = Flask(__name__)
@@ -52,6 +52,8 @@ def search():
                   r"(25[0-5]|2[0-4][0-9]|[0-1]?[0-9][0-9]?)\."
                   r"(25[0-5]|2[0-4][0-9]|[0-1]?[0-9][0-9]?)$", input_value):    
             result = ip_geolocation(input_value, ip_api_key)
+        elif re.match(r"^(?:[-A-Za-z0-9]+\.)+[A-Za-z]{2,6}$", input_value):
+            result = whois(input_value)
 
     return render_template('search.html', result=result)
 
@@ -69,6 +71,42 @@ def ip_geolocation(ip, api_key):
     url = f'https://ipgeolocation.abstractapi.com/v1/?api_key={api_key}&ip_address={ip}'
     response = requests.get(url)
     return response.json()
+
+def scrape_whois(domain):
+    url = f"https://www.whois.com/whois/{domain}"
+    response = requests.get(url)
+    soup = BeautifulSoup(response.content, 'html.parser')
+    raw_data_div = soup.find('div', class_='df-block-raw')
+    if raw_data_div:
+        raw_data = raw_data_div.find('pre', class_='df-raw')
+        if raw_data:
+            return raw_data.text.strip()
+
+    return None
+
+def parse_whois(raw_data):
+    if raw_data:
+        lines = raw_data.split('\n')
+        whois_info = {}
+        for line in lines:
+            if ':' in line:
+                key, value = line.split(':', 1)
+                key = key.strip()
+                value = value.strip()
+                if value != "REDACTED FOR PRIVACY":
+                    whois_info[key] = value
+        return whois_info
+
+    return None
+
+def whois(domain):
+    raw_data = scrape_whois(domain)
+    whois_info = parse_whois(raw_data)
+    if whois_info:
+        return whois_info
+    else:
+        return {}  # Return an empty dictionary if WHOIS information is not available
+
 
 @app.route('/download', methods=['POST'])
 def download():
