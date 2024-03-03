@@ -109,14 +109,14 @@ footer {
 }
 
 .welcome-text {
-  font-size: 100px;
+  font-size: 90px;
   display: block;
   text-align: center;
   line-height: 100px;
-  height: 100px;
+  height: 50px;
   text-transform: uppercase;
   letter-spacing: 10px;
-  margin-top: 120px;
+  margin-top: 60px;
 } 
 
 section {
